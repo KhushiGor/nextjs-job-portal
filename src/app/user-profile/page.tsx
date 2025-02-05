@@ -1,31 +1,46 @@
-'use client';
-
-import { useState } from 'react';
-import { Mail, Contact, Pen } from 'lucide-react';
-import JobList from '@/components/JobList';
-import { AppliedJobs } from '@/types/AppliedJobs';
-import { v4 as uuidv4 } from 'uuid'; 
+"use client";
+import { FaRegUserCircle } from "react-icons/fa";
+import { useState } from "react";
+import { Mail, Contact, Pen } from "lucide-react";
+import JobList from "@/components/JobList";
+import { AppliedJobs } from "@/types/AppliedJobs";
+import { v4 as uuidv4 } from "uuid";
 
 export const jobs: AppliedJobs[] = [
-  { id: uuidv4(), date: "2025-02-01", role: "Frontend Developer", company: "ABC Corp", status: "PENDING" },
-  { id: uuidv4(), date: "2025-01-28", role: "Backend Engineer", company: "XYZ Ltd", status: "APPROVED" },
-  { id: uuidv4(), date: "2025-01-20", role: "UI Designer", company: "Creative Studio", status: "REJECTED" },
+  {
+    id: uuidv4(),
+    date: "2025-02-01",
+    role: "Frontend Developer",
+    company: "ABC Corp",
+    status: "PENDING",
+  },
+  {
+    id: uuidv4(),
+    date: "2025-01-28",
+    role: "Backend Engineer",
+    company: "XYZ Ltd",
+    status: "APPROVED",
+  },
+  {
+    id: uuidv4(),
+    date: "2025-01-20",
+    role: "UI Designer",
+    company: "Creative Studio",
+    status: "REJECTED",
+  },
 ];
 
-
 const mockUser = {
-  fullname: 'Patel Mern Stack',
-  bio: 'Experienced with 2yrs in FullStack development',
-  email: 'patelmernstack@gmail.com',
-  phoneNumber: '9000000000',
-  skills: ['Next.js', 'TypeScript', 'Prisma', 'GraphQL'],
+  fullname: "John Doe",
+  bio: "Experienced with 2yrs in FullStack development",
+  email: "johndoe@gmail.com",
+  phoneNumber: "9000000000",
+  skills: ["Next.js", "TypeScript", "Prisma", "GraphQL"],
   resume: {
-    link: 'https://example.com/resume.pdf',
-    name: 'Patel_Resume.pdf',
+    link: "https://example.com/resume.pdf",
+    name: "John_Resume.pdf",
   },
 };
-
-
 
 export default function UserProfilePage() {
   const [, setOpen] = useState(false);
@@ -35,11 +50,7 @@ export default function UserProfilePage() {
     <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8">
       <div className="flex justify-between">
         <div className="flex items-center gap-4">
-          <img
-            src="https://www.shutterstock.com/image-vector/circle-line-simple-design-logo-600nw-2174926871.jpg"
-            alt="Profile"
-            className="h-24 w-24 rounded-full"
-          />
+          <FaRegUserCircle size={70}  />
           <div>
             <h1 className="font-medium text-xl">{user.fullname}</h1>
             <p>{user.bio}</p>
@@ -68,10 +79,7 @@ export default function UserProfilePage() {
         <h1 className="font-bold">Skills</h1>
         <div className="flex gap-2 flex-wrap">
           {user.skills.map((skill, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 bg-gray-200 rounded text-sm"
-            >
+            <span key={index} className="px-2 py-1 bg-gray-200 rounded text-sm">
               {skill}
             </span>
           ))}
